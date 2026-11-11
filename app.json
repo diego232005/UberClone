@@ -7,7 +7,12 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Necesitamos tu ubicación para mostrar el mapa y enviar tu posición mientras estás disponible.",
+        "NSCameraUsageDescription": "Para fotos de perfil, vehículo y documentos.",
+        "NSPhotoLibraryUsageDescription": "Para seleccionar fotos de perfil, vehículo y documentos."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,10 +21,28 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "CAMERA",
+        "READ_MEDIA_IMAGES"
+      ],
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-location",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Permitir acceso a fotos para el registro del conductor."
+        }
+      ]
+    ],
+    "extra": {
+      "USE_MOCK": "true"
     }
   }
 }
